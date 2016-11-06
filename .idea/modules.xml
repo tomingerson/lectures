@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture2/annotation-processing/annotation-processing.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture2/annotation-processing/annotation-processing.iml" group="lecture2/annotation-processing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture2/annotation-processing/annotation-processing_main.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture2/annotation-processing/annotation-processing_main.iml" group="lecture2/annotation-processing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture2/annotation-processing/annotation-processing_test.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture2/annotation-processing/annotation-processing_test.iml" group="lecture2/annotation-processing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture2/api/api.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture2/api/api.iml" group="lecture2/api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture2/api/api_main.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture2/api/api_main.iml" group="lecture2/api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture2/api/api_test.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture2/api/api_test.iml" group="lecture2/api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture2/lecture2.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture2/lecture2.iml" group="lecture2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture2/lecture2_main.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture2/lecture2_main.iml" group="lecture2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture2/lecture2_test.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture2/lecture2_test.iml" group="lecture2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture4/lecture4.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture4/lecture4.iml" group="lecture4" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture4/lecture4_main.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture4/lecture4_main.iml" group="lecture4" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture4/lecture4_test.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture4/lecture4_test.iml" group="lecture4" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture6/lecture6.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture6/lecture6.iml" group="lecture6" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture6/lecture6_main.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture6/lecture6_main.iml" group="lecture6" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture6/lecture6_test.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture6/lecture6_test.iml" group="lecture6" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lectures.iml" filepath="$PROJECT_DIR$/.idea/modules/lectures.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lectures_main.iml" filepath="$PROJECT_DIR$/.idea/modules/lectures_main.iml" group="lectures" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lectures_test.iml" filepath="$PROJECT_DIR$/.idea/modules/lectures_test.iml" group="lectures" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture2/showcases/showcases.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture2/showcases/showcases.iml" group="lecture2/showcases" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture2/showcases/showcases_generated.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture2/showcases/showcases_generated.iml" group="lecture2/showcases" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture2/showcases/showcases_main.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture2/showcases/showcases_main.iml" group="lecture2/showcases" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lecture2/showcases/showcases_test.iml" filepath="$PROJECT_DIR$/.idea/modules/lecture2/showcases/showcases_test.iml" group="lecture2/showcases" />
+    </modules>
+  </component>
+</project>
