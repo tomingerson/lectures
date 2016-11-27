@@ -1,2 +1,3 @@
 rootProject.name = 'lectures'
-include "lecture2", "lecture2:api", "lecture2:annotation-processing", "lecture2:showcases", "lecture4", "lecture6"
+include "lecture2", "lecture2:api", "lecture2:annotation-processing", "lecture2:showcases",
+        "lecture4", "lecture6", "lecture8"

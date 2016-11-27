@@ -1,6 +1,11 @@
-repositories {
-    jcenter()
-    mavenCentral()
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+    }
 }
 
 allprojects {
@@ -8,6 +13,7 @@ allprojects {
     apply plugin: 'idea'
 
     sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 
     repositories {
         jcenter()
@@ -26,77 +32,119 @@ subprojects {
     }
 }
 
-  project(':lecture2:showcases') {
-      sourceSets {
-          generated {
-              java {
-                  srcDirs = ['src/main/generated']
-              }
-          }
-      }
-  
-      dependencies {
-          compile project(':lecture2:api')
-          compile project(':lecture2:annotation-processing')
-  
-          compile 'com.google.inject:guice:4.1.+'
-          compile 'org.springframework:spring-context:4.+'
-  
-          testCompile 'org.jmockit:jmockit:1.+'
-          testCompile 'org.mockito:mockito-core:1.10.+'
-      }
-  
-      task runProcessor(type: JavaCompile, group: 'build', description: 'extracts feeding information') {
-          source = sourceSets.main.java
-          classpath = configurations.compile
-          options.compilerArgs = [
-                  "-proc:only",
-                  "-processor", "processing.FeedingProcessor"
-          ]
-          destinationDir = sourceSets.generated.java.srcDirs.iterator().next()
-      }
-  
-      compileJava {
-          dependsOn runProcessor
-          source runProcessor.destinationDir
-      }
-  
-      compileGeneratedJava {
-          dependsOn runProcessor
-          options.warnings = false
-          classpath += sourceSets.main.runtimeClasspath
-      }
-  
-      clean {
-          delete sourceSets.generated.java.srcDirs
-      }
-  
-      idea {
-          module {
-              sourceDirs += file('src/main/generated ')
-          }
-      }
-  
-  }
-  
-  project(':lecture2:annotation-processing') {
-  
-      dependencies {
-          compile project(':lecture2:api')
-      }
-  }
+project(':lecture2:showcases') {
+    sourceSets {
+        generated {
+            java {
+                srcDirs = ['src/main/generated']
+            }
+        }
+    }
+
+    dependencies {
+        compile project(':lecture2:api')
+        compile project(':lecture2:annotation-processing')
+
+        compile 'com.google.inject:guice:4.1.+'
+        compile 'org.springframework:spring-context:4.+'
+
+        testCompile 'org.jmockit:jmockit:1.+'
+        testCompile 'org.mockito:mockito-core:1.10.+'
+    }
+
+    task runProcessor(type: JavaCompile, group: 'build', description: 'extracts feeding information') {
+        source = sourceSets.main.java
+        classpath = configurations.compile
+        options.compilerArgs = [
+                "-proc:only",
+                "-processor", "processing.FeedingProcessor"
+        ]
+        destinationDir = sourceSets.generated.java.srcDirs.iterator().next()
+    }
+
+    compileJava {
+        dependsOn runProcessor
+        source runProcessor.destinationDir
+    }
+
+    compileGeneratedJava {
+        dependsOn runProcessor
+        options.warnings = false
+        classpath += sourceSets.main.runtimeClasspath
+    }
+
+    clean {
+        delete sourceSets.generated.java.srcDirs
+    }
+
+    idea {
+        module {
+            sourceDirs += file('src/main/generated ')
+        }
+    }
+
+}
+
+project(':lecture2:annotation-processing') {
+
+    dependencies {
+        compile project(':lecture2:api')
+    }
+}
 
 project(':lecture4') {
 
-  dependencies {
-      compile project(':lecture2')
-      testCompile 'junit:junit:4.+'
-  }
+    dependencies {
+        compile project(':lecture2')
+    }
 }
 
 project(':lecture6') {
 
     dependencies {
         compile project(':lecture2'), project(':lecture4')
+    }
+}
+
+project(':lecture8') {
+    apply plugin: 'org.springframework.boot'
+
+    dependencies {
+        compile("org.springframework.boot:spring-boot-starter:1.4.2.RELEASE")
+        compile("org.springframework:spring-jdbc:4.3.+")
+        compile("com.h2database:h2:1.+")
+    }
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.2'
+    distributionUrl = "http://services.gradle.org/distributions/gradle-${gradleVersion}-all.zip"
+}
+
+idea {
+    project {
+        ipr {
+            withXml { provider ->
+                // Get XML as groovy.util.Node to work with.
+                def projectXml = provider.asNode()
+
+                // Find compiler configuration component.
+                def compilerConfiguration = projectXml.component.find { component ->
+                    component.'@name' == 'CompilerConfiguration'
+                }
+
+                // Replace current annotationProcessing
+                // that is part of the compiler configuration.
+                def currentAnnotationProcessing = compilerConfiguration.annotationProcessing
+                currentAnnotationProcessing.replaceNode {
+                    annotationProcessing {
+                        profile(name: 'Default', default: true, enabled: true) {
+                            processorPath(useClasspath: true)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
