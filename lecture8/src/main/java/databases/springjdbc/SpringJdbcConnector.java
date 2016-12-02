@@ -37,14 +37,16 @@ public class SpringJdbcConnector implements CommandLineRunner {
         jdbcTemplate.execute("CREATE TABLE customers(" +
                 "id SERIAL, first_name VARCHAR(255), last_name VARCHAR(255))");
 
-        final List<Object[]> names = Stream.of("Arun Gupta", "Lukas Eder", "Josh Juneau", "Josh" +
-                " Long", "Vlad Mihalcea")
+        final List<Object[]> names = Stream.of("Arun Gupta", "Lukas Eder", "Josh Juneau",
+                "Josh Long", "Vlad Mihalcea")
                 .map(name -> name.split(" "))
                 .collect(Collectors.toList());
 
-        jdbcTemplate.batchUpdate("INSERT INTO customers(first_name, last_name) VALUES (?,?)", names);
+        jdbcTemplate.batchUpdate("INSERT INTO customers(first_name, last_name) VALUES " +
+                "(?,?)", names);
 
-        logger.info("Querying for customer records where first_name = 'Josh':");
+        logger.info("Querying for customer records where first_name = 'Josh' using " +
+                "JDBCTemplate:");
         jdbcTemplate.query(
                 "SELECT id, first_name, last_name FROM customers WHERE first_name = ?",
                 new Object[]{"Josh"},

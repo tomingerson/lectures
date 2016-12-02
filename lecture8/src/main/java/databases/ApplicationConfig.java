@@ -11,9 +11,11 @@ public class ApplicationConfig {
 
     /**
      * spring databases.springjdbc startup
+     *
      * @param args commandline arguments
      */
     public static void main(String args[]) {
         SpringApplication.run(ApplicationConfig.class, args);
     }
+
 }
